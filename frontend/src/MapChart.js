@@ -52,40 +52,47 @@ function talkWithBackendNow(inputText,name,setInfo){
     
 
 }
+const MapChart = ({ setTooltipContent, inputText, setInfo, info }) => {
 
-const MapChart = ({ setTooltipContent, inputText, setInfo }) => {
- 
+
+    let countriesArr = info.map(item=>item.country)
+
 
     return (
-    <div style={{width:"70%",height:"80%"}}> 
-    
-      <h2>Hover anywhere in the map!</h2>
-      <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
+    <div style={{width:"70%",height:"50%", paddingTop:"0px"}}> 
+  
+      <ComposableMap data-tip="" projectionConfig={{ scale: 180 }}>
         {/* <ZoomableGroup> */}
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map(geo => (
+
+
+
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
+                  fill={countriesArr.find((element)=>element===geo.properties.NAME) ? "skyBlue" : "#D6D6DA"}  
                   onClick={() => {
                     console.log(inputText);
                     console.log(geo.properties);
                     const { NAME, POP_EST } = geo.properties;
-                    setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
                     talkWithBackendNow(inputText,NAME,setInfo)
                     
                         // fetch(geoUrl)
                         // .then(response=>response.json())
                         // .then(result=>console.log(result))
                 
-                }}
+                  }}
+                  onMouseEnter={()=>{
+                    setTooltipContent(`${geo.properties.NAME}`);
+                  }}
+
                   onMouseLeave={() => {
                     setTooltipContent("");
                   }}
                   style={{
                     default: {
-                      fill: "#D6D6DA",
                       outline: "none"
                     },
                     hover: {
@@ -93,7 +100,7 @@ const MapChart = ({ setTooltipContent, inputText, setInfo }) => {
                       outline: "none"
                     },
                     pressed: {
-                      fill: "#15c39a",
+                     
                       outline: "none"
                     }
                   }}

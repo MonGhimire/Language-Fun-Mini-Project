@@ -14,9 +14,11 @@ function App() {
 
   return (
     <div className="App">
+      
+      
       <div style={{width:"100%",display:"flex", flexDirection:"row"}}>
-          <Sidebar setInputText={setInputText} info={info} />
-          <MapChart setTooltipContent={setContent} inputText={inputText} setInfo={setInfo} />
+          <Sidebar inputText={inputText} setInputText={setInputText} info={info} />
+          <MapChart setTooltipContent={setContent} inputText={inputText} setInfo={setInfo} info={info} />
           <ReactTooltip>{content}</ReactTooltip>
       </div>
     </div>
