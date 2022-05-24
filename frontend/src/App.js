@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import MapChart from "./MapChart";
+import ReactTooltip from "react-tooltip";
+import Sidebar from './components/Sidebar.jsx';
+
 
 function App() {
+
+  const [content, setContent] = useState("");
+  const [ inputText, setInputText ] = useState("");
+  const [ info, setInfo ] = useState([])
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{width:"100%",display:"flex", flexDirection:"row"}}>
+          <Sidebar setInputText={setInputText} info={info} />
+          <MapChart setTooltipContent={setContent} inputText={inputText} setInfo={setInfo} />
+          <ReactTooltip>{content}</ReactTooltip>
+      </div>
     </div>
   );
 }
