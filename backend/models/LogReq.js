@@ -14,4 +14,3 @@ const LogReq = mongoose.model("logReq", logReqSchema)
 export default LogReq
 
 
-// check the country thats clicked and the input text. 

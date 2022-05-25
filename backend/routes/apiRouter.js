@@ -98,19 +98,12 @@ apiRouter.post("/translate", async (req, res) => {
           req.body.input
         );
 
-        // if (translatedText) {
-        //   response.push({
-        //     translatedText: translatedText.data.translations[0].translatedText,
-        //     country: country.NAME,
-        //   });
-        // } 
         if(translatedText){    
             const finalResponse = await LogReq.create({
                 inputText: word,
                 country: country.NAME,
                 countryCode: country.ISO_A3,
                 translatedText: translatedText
-                // clickedCountry: req.body.country
             })
             response.push(finalResponse)
         }   
