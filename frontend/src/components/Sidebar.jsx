@@ -21,6 +21,8 @@ const Sidebar = ({ inputText,setInputText, info }) => {
     console.log(theSelectedCountry);
   }
 
+
+
   return (
     <div style={{width:"30%", display: "flex", flexDirection: "column"}}>
 
@@ -34,11 +36,15 @@ const Sidebar = ({ inputText,setInputText, info }) => {
     </div>
     
     <div style={{marginTop:"1em"}}>
-    {info.map((item)=>{
+    {info.map((item,i)=>{
+      let backgroundColor =  i === 0? "pink" : "skyBlue"
+
+
        return (
           
-          <div style={{width:"90%",margin:"10px auto",border:"0.5px solid grey",borderRadius:"5px" }}>
-          <h2>Translated text: {item.translatedText} in {item.country}</h2>
+          <div style={{width:"90%",margin:"10px auto",border:"0.5px solid grey",borderRadius:"5px",backgroundColor:backgroundColor }}>
+          <h2>{item.translatedText}</h2>
+          <p>{item.country}</p>
           {/* <p>Clicked Country: {item.clickedCountry}</p> */}
           </div>
         

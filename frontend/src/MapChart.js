@@ -43,7 +43,8 @@ function talkWithBackendNow(inputText,name,setInfo){
         }).then(response => response.json())
           .then(data => {
             
-            setInfo(data);})
+            setInfo(data)
+          })
         } catch (error) {
           alert("try again later")
       }
@@ -53,7 +54,7 @@ function color(countriesArr, name){
   console.log(countriesArr);
   console.log(name);
   return countriesArr[0]===name ? 
-  "red" : 
+  "pink" : 
   (countriesArr.find((element)=>element===name) ? "skyBlue" : "#D6D6DA");
 }
 
@@ -80,7 +81,7 @@ const MapChart = ({ setTooltipContent, inputText, setInfo, info }) => {
                     console.log(inputText);
                     console.log(geo.properties);
                     const { NAME, POP_EST } = geo.properties;
-                    talkWithBackendNow(inputText,NAME,setInfo)
+                    talkWithBackendNow(inputText,NAME,setInfo,info)
                 
                   }}
                   onMouseEnter={()=>{
