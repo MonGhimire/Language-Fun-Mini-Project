@@ -42,16 +42,21 @@ function talkWithBackendNow(inputText,name,setInfo){
           body: JSON.stringify(data)
         }).then(response => response.json())
           .then(data => {
+            
             setInfo(data);})
         } catch (error) {
           alert("try again later")
       }
-
-       
-
-    
-
 }
+
+function color(countriesArr, name){
+  console.log(countriesArr);
+  console.log(name);
+  return countriesArr[0]===name ? 
+  "red" : 
+  (countriesArr.find((element)=>element===name) ? "skyBlue" : "#D6D6DA");
+}
+
 const MapChart = ({ setTooltipContent, inputText, setInfo, info }) => {
 
 
@@ -67,21 +72,15 @@ const MapChart = ({ setTooltipContent, inputText, setInfo, info }) => {
             {({ geographies }) =>
               geographies.map(geo => (
 
-
-
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={countriesArr.find((element)=>element===geo.properties.NAME) ? "skyBlue" : "#D6D6DA"}  
+                  fill={color(countriesArr,geo.properties.NAME)}  
                   onClick={() => {
                     console.log(inputText);
                     console.log(geo.properties);
                     const { NAME, POP_EST } = geo.properties;
                     talkWithBackendNow(inputText,NAME,setInfo)
-                    
-                        // fetch(geoUrl)
-                        // .then(response=>response.json())
-                        // .then(result=>console.log(result))
                 
                   }}
                   onMouseEnter={()=>{
@@ -100,7 +99,7 @@ const MapChart = ({ setTooltipContent, inputText, setInfo, info }) => {
                       outline: "none"
                     },
                     pressed: {
-                     
+                      
                       outline: "none"
                     }
                   }}

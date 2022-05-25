@@ -26,22 +26,25 @@ const Sidebar = ({ inputText,setInputText, info }) => {
 
     <h1 style={{color:"#15c39a"}}>Language with Map fun!</h1>
     <div style={{paddingTop:"2em"}}> 
-    <p>Type a Word</p>
+    <p>Translate...</p>
     <input type="text" 
           onChange={(e)=>makeRequest(e.target.value)}
           style={{width:"50%", margin: "0 auto"}}
     />
     </div>
     
-
+    <div style={{marginTop:"1em"}}>
     {info.map((item)=>{
        return (
-        <>
-          <h3>{item.translatedText}</h3>
-          <p>{item.country}</p>
-        </>
+          
+          <div style={{width:"90%",margin:"10px auto",border:"0.5px solid grey",borderRadius:"5px" }}>
+          <h2>Translated text: {item.translatedText} in {item.country}</h2>
+          {/* <p>Clicked Country: {item.clickedCountry}</p> */}
+          </div>
+        
       )
     })}
+    </div>
 
 
 
