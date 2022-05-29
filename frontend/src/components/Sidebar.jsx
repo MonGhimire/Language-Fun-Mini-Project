@@ -1,44 +1,42 @@
+import { Heading, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Sidebar = ({ inputText,setInputText, info }) => {
-  console.log(info);
-
-
-
-
+  // console.log(info);
   function makeRequest(value){
-
+    console.log("123");
     setInputText(value)
     
   }
 
-  function findTheClickedCountryLang (){
+  // function findTheClickedCountryLang (){
 
-    if(!inputText.value){
-      return;
-    }
-    const theSelectedCountry = info.find(item=>item.NAME == inputText.value)
-    console.log(theSelectedCountry);
-  }
-
-
+  //   if(!inputText.value){
+  //     return;
+  //   }
+  //   const theSelectedCountry = info.find(item=>item.NAME == inputText.value)
+  //   console.log(theSelectedCountry);
+  // }
 
   return (
     <div style={{width:"30%", display: "flex", flexDirection: "column"}}>
 
-    <h1 style={{color:"#15c39a"}}>Language with Map fun!</h1>
+    <Heading style={{color:"#15c39a"}}>Language with Map fun!</Heading>
     <div style={{paddingTop:"2em"}}> 
-    <p>Translate...</p>
-    <input type="text" 
+    <Text>Translate...</Text>
+
+  
+      <Input bg="green.50" variant='filled' placeholder='Text' onChange={(e)=>makeRequest(e.target.value)} />
+ 
+    {/* <input type="text" 
           onChange={(e)=>makeRequest(e.target.value)}
           style={{width:"50%", margin: "0 auto"}}
-    />
+    /> */}
     </div>
     
     <div style={{marginTop:"1em"}}>
     {info.map((item,i)=>{
       let backgroundColor =  i === 0? "pink" : "skyBlue"
-
 
        return (
           
@@ -48,8 +46,8 @@ const Sidebar = ({ inputText,setInputText, info }) => {
           {/* <p>Clicked Country: {item.clickedCountry}</p> */}
           </div>
         
-      )
-    })}
+        )
+      })}
     </div>
 
 

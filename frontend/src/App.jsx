@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       
-      
+      {/* old codes */}
       <div style={{width:"100%",display:"flex", flexDirection:"row"}}>
           <Sidebar inputText={inputText} setInputText={setInputText} info={info} />
           <MapChart setTooltipContent={setContent} inputText={inputText} setInfo={setInfo} info={info} />

@@ -5,9 +5,6 @@ import {
   Geographies,
   Geography
 } from "react-simple-maps";
-// import axios from 'axios'
-
-
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
