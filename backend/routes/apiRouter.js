@@ -74,7 +74,7 @@ async function getTranslation(countryCode, text) {
   }
 }
 
-apiRouter.post("/translate", async (req, res) => {
+apiRouter.post("/translate",(req, res) => {
 
 
   const dataFromGeoAPI = axios({
@@ -86,7 +86,7 @@ apiRouter.post("/translate", async (req, res) => {
         result.data,
         req.body.country
       );
-      //   console.log(countriesFromSubRegion); ..this is showing the details of countries except the locale code info.
+   
 
       let response = [];
 
@@ -108,9 +108,6 @@ apiRouter.post("/translate", async (req, res) => {
             response.push(finalResponse)
         }   
         
-
-
-        
       }
       
       res.send(response);
@@ -119,12 +116,3 @@ apiRouter.post("/translate", async (req, res) => {
 });
 
 export default apiRouter;
-
-//   const finalResponse = countriesFromSubRegion.map((country) => {
-//     const translatedText = getTranslation(country.ISO_A2, req.body.input);
-//     return {
-//       translatedText: translatedText,
-//       country: country.NAME,
-//       countryCode: country.ISO_A2
-//     };
-//   });
