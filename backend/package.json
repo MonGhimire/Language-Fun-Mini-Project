@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon -r dotenv/config server.js"
+    "start": "node server.js"
   },
   "type": "module",
   "dependencies": {

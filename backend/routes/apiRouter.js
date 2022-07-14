@@ -78,7 +78,7 @@ apiRouter.post("/translate",(req, res) => {
 
 
   const dataFromGeoAPI = axios({
-    url: "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json",
+    url: "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/v0.12.x/topojson-maps/world-110m.json",
     method: "get",
   })
     .then(async (result) => {

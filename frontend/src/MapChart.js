@@ -6,8 +6,7 @@ import {
   Geography
 } from "react-simple-maps";
 
-const geoUrl =
-  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/v0.12.x/topojson-maps/world-110m.json";
 
 const rounded = num => {
   if (num > 1000000000) {

@@ -26,7 +26,7 @@ const Sidebar = ({ inputText,setInputText, info }) => {
     <Text>Translate...</Text>
 
   
-      <Input bg="green.50" variant='filled' placeholder='Text' onChange={(e)=>makeRequest(e.target.value)} />
+      <Input bg="green.50" variant='filled' onChange={(e)=>makeRequest(e.target.value)} />
  
     {/* <input type="text" 
           onChange={(e)=>makeRequest(e.target.value)}
